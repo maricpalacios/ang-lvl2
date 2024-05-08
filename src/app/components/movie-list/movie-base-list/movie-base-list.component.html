@@ -1,0 +1,28 @@
+<div class="container">
+    @for (movie of listData; track movie.id) {
+        <div class="movie">
+            <div class="data">
+                <div class="title">
+                    {{ movie.title }}
+                </div>
+                <div class="body">
+                    <span><b>Release date:</b> {{ movie.release_date }}</span>
+                    <span><b>Budget:</b> {{ movie.budget | customCurrency:currency }}</span>
+                    <span><b>Duration:</b> {{ movie.duration | customTime }}</span>
+                </div>
+            </div>
+            <div class="detail-button">
+                <button (click)="action(movie.id)">Details</button>
+            </div>
+        </div>
+    } @empty {
+        <div class="movie emtpy">
+            <div class="data">
+                <div class="body">
+                    <span>No hay datos que mostrar</span>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

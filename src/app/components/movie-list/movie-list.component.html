@@ -1,0 +1,16 @@
+@if(!error){
+    <div class="container">
+    <h1>Filters</h1>
+    <div class="filters_containers">
+        <div class="filters">
+            Title <input [(ngModel)]="title" (ngModelChange)="search({title, year})">
+            Release year<input [(ngModel)]="year" (ngModelChange)="search({title, year})">
+        </div>
+    </div>
+    <div class="table">
+        <app-movie-base-list [listData]="movieListFiltered" (buttonAction)="goToDetails($event)"></app-movie-base-list>
+    </div>
+</div>
+} @else {
+    <p>La llamada a fallado, pruebe otra vez...</p>
+}
