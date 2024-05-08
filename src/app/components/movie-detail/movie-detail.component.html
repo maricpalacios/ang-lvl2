@@ -1,0 +1,38 @@
+<div class="container">
+    <button (click)="back()">Back</button>
+    <h1></h1>
+    @if(!error && movie){
+    <div class="header">
+        <div class="image"><img [src]="movie.poster" priority></div>
+        <div class="summary">{{ movie.summary }}</div>
+    </div>
+    <div class="body">
+        <table>
+            <tr>
+                <th>Box Office</th>
+                <td>{{ movie.box_office | customCurrency:currency }}</td>
+            </tr>
+            <tr>
+                <th>Budget</th>
+                <td>{{ movie.budget | customCurrency:currency }}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ movie.duration | customTime }}</td>
+            </tr>
+            <tr>
+                <th>Producers</th>
+                <td [innerHtml]="movie.producers.join(', ')"></td>
+            </tr>
+            <tr>
+                <th>Cinematographers</th>
+                <td [innerHtml]="movie.cinematographers.join(', ')"></td>
+            </tr>
+        </table>
+    </div>
+    } @else if (error) {
+        <p>La llamada a fallado, pruebe otra vez...</p>
+    } @else {
+        <p>No hay datos que mostrar</p>
+    }
+</div>

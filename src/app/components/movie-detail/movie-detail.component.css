@@ -1,0 +1,30 @@
+.container{
+    .header{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        .image{
+            width: 25%;
+        }
+
+        .summary{
+            width: 75%;
+            margin-top: 10px;
+        }
+    }
+
+    .body{
+        margin: 12px;
+        table{
+            tr{
+                margin-bottom: 2px;
+
+                th{
+                    width: 20%;
+                    flex: none;
+                }
+            }
+        }
+    }
+}
