@@ -49,6 +49,6 @@ export class MovieListComponent implements OnDestroy{
   }
 
   goToDetails(id: string){
-    this._router.navigate([`list/${id}`]); // que sea un event emitter
+    this._router.navigate([id]); // que sea un event emitter
   }
 }

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { SharedModule } from '../../../shared/shared.module';
-import { CurrencyType } from '../../../core/interfaces/movie.interface';
+import { CurrencyType, MovieSummary } from '../../../core/interfaces/movie.interface';
 
 @Component({
   selector: 'app-movie-base-list',
@@ -11,7 +11,7 @@ import { CurrencyType } from '../../../core/interfaces/movie.interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MovieBaseListComponent {
-  @Input() listData: any; //TODO ver manera de quitar el any o mover la tabla porque aquí no pinta nada
+  @Input() listData: MovieSummary[] = [];
   @Output() buttonAction = new EventEmitter();
 
   CurrencyType = CurrencyType;

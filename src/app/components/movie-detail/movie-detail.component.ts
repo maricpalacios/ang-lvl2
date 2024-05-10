@@ -12,33 +12,33 @@ import { Subscription } from 'rxjs';
   standalone: true,
   imports: [SharedModule]
 })
-export class MovieDetailComponent implements OnDestroy{
-    url: string = '';
-    movie!: Movie;
+export class MovieDetailComponent implements OnDestroy {
+  url: string = '';
+  movie!: Movie;
 
-    CurrencyType = CurrencyType;
-    currency: string;
-    sub: Subscription;
-    error = false;
+  CurrencyType = CurrencyType;
+  currency: string;
+  sub: Subscription;
+  error = false;
 
-    constructor(private _activatedRoute: ActivatedRoute, private _harryPotterService: HarryPotterService, private _route: Router) {
-      this.currency = CurrencyType.GBP;
-      this.url = this._activatedRoute.snapshot.url[0].path;
-      this.sub = this._harryPotterService.getMovieDetail(this.url).subscribe({
-        next: (response: Movie) => {
-          this.movie = response;
-        },
-        error: () => {
-          this.error = true;
-        }
+  constructor(private _activatedRoute: ActivatedRoute, private _harryPotterService: HarryPotterService, private _route: Router) {
+    this.currency = CurrencyType.GBP;
+    this.url = this._activatedRoute.snapshot.url[0].path;
+    this.sub = this._harryPotterService.getMovieDetail(this.url).subscribe({
+      next: (response: Movie) => {
+        this.movie = response;
+      },
+      error: () => {
+        this.error = true;
+      }
     })
-    }
+  }
 
-    ngOnDestroy(): void {
-      this.sub.unsubscribe();
-    }
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 
-    back(){
-      this._route.navigate(['list']);
-    }
+  back() {
+    this._route.navigate(['/']);
+  }
 }
