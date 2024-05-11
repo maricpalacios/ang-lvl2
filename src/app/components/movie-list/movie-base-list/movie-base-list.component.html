@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="detail-button">
-                <button (click)="action(movie.id)">Details</button>
+                <button [id]="movie.id" (click)="action(movie.id)">Details</button>
             </div>
         </div>
     } @empty {
