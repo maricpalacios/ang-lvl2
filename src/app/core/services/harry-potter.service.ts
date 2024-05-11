@@ -14,10 +14,10 @@ export class HarryPotterService {
   constructor(private httpService: HttpClient) { }
 
   getMovieList(): Observable<MovieSummary[]> {
-    return this.httpService.get<Movie[]>(this.localhostUrl + '/movies');
+    return this.httpService.get<Movie[]>(this.baseUrl + '/movies');
   }
 
   getMovieDetail(id: string): Observable<Movie> {
-    return this.httpService.get<Movie>(this.localhostUrl + `/movies/${id}`);
+    return this.httpService.get<Movie>(this.baseUrl + `/movies/${id}`);
   }
 }
