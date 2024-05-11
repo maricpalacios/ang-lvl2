@@ -9,7 +9,7 @@ import { Movie, MovieSummary } from '../interfaces/movie.interface';
 export class HarryPotterService {
 
   localhostUrl = 'http://localhost:4200';
-  baseUrl = 'http://' + window.location.hostname;
+  baseUrl = 'https://' + window.location.hostname;
 
   constructor(private httpService: HttpClient) { }
 
