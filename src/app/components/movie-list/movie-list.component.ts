@@ -20,7 +20,7 @@ export class MovieListComponent implements OnDestroy{
   title: string = '';
   year: string = '';
   sub: Subscription;
-  error: Boolean = false;
+  error: boolean = false;
   constructor(private _harryPotterService: HarryPotterService, private _router: Router){
     this.sub = this._harryPotterService.getMovieList().subscribe({
       next: (response: MovieSummary[]) => {
